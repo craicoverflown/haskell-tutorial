@@ -1,5 +1,5 @@
 {-# OPTIONS_GHC -Wno-identities #-}
-module Exercise1 (last,init,(!!),firstHalf,lastHalf,inners) where
+module Exercise1 (last,init,(!!),firstHalf,lastHalf,inners,distance,nthRoot) where
 
 import Prelude hiding (last,init,(!!))
 
@@ -25,3 +25,9 @@ lastHalf xs = drop (div (length xs) 2) xs
 
 inners :: [a] -> [a]
 inners xs = init (tail xs)
+
+distance :: (Float,Float) -> (Float,Float) -> Float
+distance (x1, y1) (x2, y2) = sqrt ((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
+nthRoot :: Float -> Int -> Float
+nthRoot x n = fromInteger (floor (x ** (1 / fromIntegral n)))
